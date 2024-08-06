@@ -1,52 +1,52 @@
 [
     {
-        "version": "stable-perl",
-        "date": "20240725",
+        "version": "1.27.0",
+        "date": "20240724",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "stable-bookworm-perl",
-        "date": "20240725",
+        "version": "1.26.1",
+        "date": "20240724",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "perl",
-        "date": "20240725",
+        "version": "1.26.0",
+        "date": "20240514",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "mainline-perl",
-        "date": "20240725",
+        "version": "1.25.5",
+        "date": "20240514",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "mainline-bookworm-perl",
-        "date": "20240725",
+        "version": "1.24.0",
+        "date": "20240418",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "bookworm-perl",
-        "date": "20240725",
+        "version": "1.25.4",
+        "date": "20240413",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "1.27.0-perl",
-        "date": "20240725",
+        "version": "1.25.3",
+        "date": "20240214",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "1.27.0-bookworm-perl",
-        "date": "20240725",
+        "version": "1.25.2",
+        "date": "20231012",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "1.27-perl",
-        "date": "20240725",
+        "version": "1.25.1",
+        "date": "20230728",
         "architecture": "x86 & arm64"
     },
     {
-        "version": "1.27-bookworm-perl",
-        "date": "20240725",
+        "version": "1.25.0",
+        "date": "20230613",
         "architecture": "x86 & arm64"
     }
 ]
