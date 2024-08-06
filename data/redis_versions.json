@@ -1,0 +1,47 @@
+[
+    {
+        "version": "bookworm",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "alpine3.20",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "alpine",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4.0-bookworm",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4.0-alpine3.20",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4.0-alpine",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4.0",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4-bookworm",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "7.4-alpine3.20",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    }
+]

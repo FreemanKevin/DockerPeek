@@ -1,0 +1,47 @@
+[
+    {
+        "version": "management-alpine",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "management",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "alpine",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0.0-beta.3-management-alpine",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0.0-beta.3-management",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0.0-beta.3-alpine",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0.0-beta.3",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0-rc-management-alpine",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "4.0-rc-management",
+        "date": "20240802",
+        "architecture": "x86 & arm64"
+    }
+]
