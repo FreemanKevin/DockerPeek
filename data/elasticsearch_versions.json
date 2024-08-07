@@ -1,10 +1,5 @@
 [
     {
-        "version": "7.17.23",
-        "date": "20240731",
-        "architecture": "x86 & arm64"
-    },
-    {
         "version": "8.14.3",
         "date": "20240711",
         "architecture": "x86 & arm64"
@@ -12,11 +7,6 @@
     {
         "version": "8.14.2",
         "date": "20240708",
-        "architecture": "x86 & arm64"
-    },
-    {
-        "version": "7.17.22",
-        "date": "20240614",
         "architecture": "x86 & arm64"
     },
     {
@@ -35,11 +25,6 @@
         "architecture": "x86 & arm64"
     },
     {
-        "version": "7.17.21",
-        "date": "20240605",
-        "architecture": "x86 & arm64"
-    },
-    {
         "version": "8.13.3",
         "date": "20240508",
         "architecture": "x86 & arm64"
@@ -47,6 +32,36 @@
     {
         "version": "8.13.0",
         "date": "20240502",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.12.2",
+        "date": "20240306",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.12.1",
+        "date": "20240207",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.12.0",
+        "date": "20240203",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.11.4",
+        "date": "20240118",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.11.3",
+        "date": "20231218",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "8.11.2",
+        "date": "20231218",
         "architecture": "x86 & arm64"
     }
 ]
