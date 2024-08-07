@@ -1,1 +1,97 @@
-[]
+[
+    {
+        "version": "2.19.7",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.21.5",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.22.5",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.18.7",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.20.7",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.23.6",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.24.4",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.25.3",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.25.2",
+        "date": "20240722",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.23.5",
+        "date": "20240619",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.24.3",
+        "date": "20240619",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.25.1",
+        "date": "20240619",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.25.0",
+        "date": "20240524",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.24.2",
+        "date": "20240426",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.23.4",
+        "date": "20240221",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.24.1",
+        "date": "20240212",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.23.3",
+        "date": "20240102",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.24.0",
+        "date": "20231103",
+        "architecture": "x86"
+    },
+    {
+        "version": "2.23.2",
+        "date": "20231023",
+        "architecture": "x86"
+    }
+]
