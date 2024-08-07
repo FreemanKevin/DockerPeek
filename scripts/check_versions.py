@@ -14,9 +14,9 @@ def save_tags_to_json(image, tag_data):
 def fetch_docker_tags(url, image):
     try:
         response = requests.get(url)
-        response.raise_for_status()  # 觸發異常，如果HTTP狀態代碼表明有錯誤
+        response.raise_for_status()  # 触发异常，如果HTTP状态码表明有错误
         print("DEBUG: Response Headers:", response.headers)
-        print("DEBUG: Response Body:", response.json())  # 假設返回的是JSON格式
+        print("DEBUG: Response Body:", response.json())  # 假设返回的是JSON格式
         return response.json()
     except requests.exceptions.HTTPError as errh:
         print("DEBUG: HTTP Error:", errh)
@@ -26,7 +26,7 @@ def fetch_docker_tags(url, image):
         print("DEBUG: Timeout Error:", errt)
     except requests.exceptions.RequestException as err:
         print("DEBUG: Oops: Something Else", err)
-        return None  # 返回 None 在錯誤時
+        return None  # 返回 None 在错误时
 
 def get_docker_hub_tags(image, pattern):
     if '/' in image:
@@ -37,7 +37,7 @@ def get_docker_hub_tags(image, pattern):
     valid_tags = []
     
     while url and len(valid_tags) < 10:
-        data = fetch_docker_tags(url, image)  # 使用新的 fetch_docker_tags 函數
+        data = fetch_docker_tags(url, image)  # 使用新的 fetch_docker_tags 函数
         if not data:
             print(f"DEBUG: Failed to fetch data for {image}")
             return
@@ -51,16 +51,22 @@ def get_docker_hub_tags(image, pattern):
             if 'latest' in tag_name:
                 continue
             if re.match(pattern, tag_name):
-                archs = [detail['architecture'] for detail in result['images'] if 'architecture' in detail]
+                archs = set(detail['architecture'] for detail in result['images'] if 'architecture' in detail)
                 if 'amd64' in archs and 'arm64' in archs:
-                    push_time = result['tag_last_pushed']
-                    push_date = push_time.split('T')[0].replace('-', '')
-                    tag_info = {
-                        'version': tag_name,
-                        'date': push_date,
-                        'architecture': 'x86 & arm64'
-                    }
-                    valid_tags.append(tag_info)
+                    architecture = 'x86 & arm64'
+                elif 'amd64' in archs:
+                    architecture = 'x86'
+                else:
+                    architecture = 'unknown'
+
+                push_time = result['tag_last_pushed']
+                push_date = push_time.split('T')[0].replace('-', '')
+                tag_info = {
+                    'version': tag_name,
+                    'date': push_date,
+                    'architecture': architecture
+                }
+                valid_tags.append(tag_info)
         
         url = data.get('next')
 
