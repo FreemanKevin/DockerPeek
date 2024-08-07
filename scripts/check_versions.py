@@ -51,7 +51,7 @@ def get_docker_hub_tags(image, pattern):
 # 定义镜像及其版本匹配规则
 image_patterns = {
     "nginx": r"^1\.\d+\.\d+$",
-    "elasticsearch": r"^v8\.\d+\.\d+$",
+    "elasticsearch": r"^\d+\.\d+\.\d+$",
     "nacos/nacos-server": r"^v2\.\d+\.\d+(?:\.\d+)?$",
     "minio/minio": r"^RELEASE\.202[4-9]-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$",
     "rabbitmq": r"^v?[3-9]\.\d+\.\d+-management-alpine$",
