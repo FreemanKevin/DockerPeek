@@ -15,18 +15,15 @@ def fetch_docker_tags(url, image):
     try:
         response = requests.get(url)
         response.raise_for_status()  # 触发异常，如果HTTP状态码表明有错误
-        print("DEBUG: Response Headers:", response.headers)
-        print("DEBUG: Response Body:", response.json())  # 假设返回的是JSON格式
         return response.json()
     except requests.exceptions.HTTPError as errh:
-        print("DEBUG: HTTP Error:", errh)
-    except requests.exceptions.ConnectionError as errc:
-        print("DEBUG: Error Connecting:", errc)
-    except requests.exceptions.Timeout as errt:
-        print("DEBUG: Timeout Error:", errt)
-    except requests.exceptions.RequestException as err:
-        print("DEBUG: Oops: Something Else", err)
         return None  # 返回 None 在错误时
+    except requests.exceptions.ConnectionError:
+        return None
+    except requests.exceptions.Timeout:
+        return None
+    except requests.exceptions.RequestException:
+        return None
 
 def get_docker_hub_tags(image, pattern):
     if '/' in image:
@@ -37,13 +34,11 @@ def get_docker_hub_tags(image, pattern):
     valid_tags = []
     
     while url and len(valid_tags) < 10:
-        data = fetch_docker_tags(url, image)  # 使用新的 fetch_docker_tags 函数
+        data = fetch_docker_tags(url, image)
         if not data:
-            print(f"DEBUG: Failed to fetch data for {image}")
             return
         
         if 'results' not in data:
-            print(f"DEBUG: Missing 'results' in response data for {image}")
             return
 
         for result in data['results']:
