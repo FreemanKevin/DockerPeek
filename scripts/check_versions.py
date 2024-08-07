@@ -62,7 +62,7 @@ image_patterns = {
     "minio/minio": r"^RELEASE\.202[4-9]-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$",
     "rabbitmq": r"^v?[3-9]\.\d+\.\d+-management-alpine$",
     "redis": r"^v?7\.\d+\.\d+$",
-    "oscarfonts/geoserver": r"^v?3\.\d+\.\d+$"  # Assuming a similar pattern for geoserver
+    "oscarfonts/geoserver": r".*"
 }
 
 middlewares = ["nginx", "nacos/nacos-server", "redis", "elasticsearch", "minio/minio", "rabbitmq", "oscarfonts/geoserver"]
