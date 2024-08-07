@@ -6,7 +6,8 @@ import re
 def save_tags_to_json(image, tag_data):
     if not os.path.exists('data'):
         os.makedirs('data')
-    filename = f"{image.replace('/', '_')}_versions.json"  # Replace '/' in filename to avoid path issues
+    # Use only the last part of the image name for the filename
+    filename = f"{image.split('/')[-1]}_versions.json"
     filepath = os.path.join('data', filename)
     with open(filepath, 'w') as file:
         json.dump(tag_data, file, indent=4)
@@ -57,7 +58,7 @@ def get_docker_hub_tags(image, pattern):
 image_patterns = {
     "nginx": r"^1\.\d+\.\d+$",
     "elasticsearch": r"^([8-9]|\d{2,})\.\d+\.\d+$",
-    "nacos/nacos-server": r"^v2\.\d+\.\d+(?:\.\d+)?$",
+    "nacos/nacos-server": r"^v2\.\d+\.\d+.*$",  # Only match v2 and later versions
     "minio/minio": r"^RELEASE\.202[4-9]-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$",
     "rabbitmq": r"^v?[3-9]\.\d+\.\d+-management-alpine$",
     "redis": r"^v?7\.\d+\.\d+$",
@@ -66,5 +67,5 @@ image_patterns = {
 
 middlewares = ["nginx", "nacos/nacos-server", "redis", "elasticsearch", "minio/minio", "rabbitmq", "oscarfonts/geoserver"]
 for middleware in middlewares:
-    pattern = image_patterns.get(middleware.split('/')[0], r".*")  # default to any if specific not found
+    pattern = image_patterns.get(middleware, r".*")  # default to any if specific not found
     get_docker_hub_tags(middleware, pattern)
