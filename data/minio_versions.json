@@ -1,0 +1,62 @@
+[
+    {
+        "version": "RELEASE.2024-08-03T04-33-23Z",
+        "date": "20240803",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-31T05-46-26Z",
+        "date": "20240731",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-29T22-14-52Z",
+        "date": "20240730",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-26T20-48-21Z",
+        "date": "20240729",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-16T23-46-41Z",
+        "date": "20240717",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-15T19-02-30Z",
+        "date": "20240715",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-13T01-46-15Z",
+        "date": "20240713",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-10T18-41-49Z",
+        "date": "20240710",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-07-04T14-25-45Z",
+        "date": "20240704",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-06-29T01-20-47Z",
+        "date": "20240629",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-06-28T09-06-49Z",
+        "date": "20240628",
+        "architecture": "x86 & arm64"
+    },
+    {
+        "version": "RELEASE.2024-06-26T01-06-18Z",
+        "date": "20240626",
+        "architecture": "x86 & arm64"
+    }
+]
