@@ -14,10 +14,10 @@ def save_tags_to_json(image, tag_data):
 def fetch_docker_tags(url, image):
     try:
         response = requests.get(url)
-        response.raise_for_status()  # 触发异常，如果HTTP状态码表明有错误
+        response.raise_for_status()
         return response.json()
     except requests.exceptions.HTTPError as errh:
-        return None  # 返回 None 在错误时
+        return None
     except requests.exceptions.ConnectionError:
         return None
     except requests.exceptions.Timeout:
