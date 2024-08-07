@@ -6,14 +6,29 @@ import re
 def save_tags_to_json(image, tag_data):
     if not os.path.exists('data'):
         os.makedirs('data')
-    # Use only the last part of the image name for the filename
     filename = f"{image.split('/')[-1]}_versions.json"
     filepath = os.path.join('data', filename)
     with open(filepath, 'w') as file:
         json.dump(tag_data, file, indent=4)
 
+def fetch_docker_tags(url, image):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # 觸發異常，如果HTTP狀態代碼表明有錯誤
+        print("DEBUG: Response Headers:", response.headers)
+        print("DEBUG: Response Body:", response.json())  # 假設返回的是JSON格式
+        return response.json()
+    except requests.exceptions.HTTPError as errh:
+        print("DEBUG: HTTP Error:", errh)
+    except requests.exceptions.ConnectionError as errc:
+        print("DEBUG: Error Connecting:", errc)
+    except requests.exceptions.Timeout as errt:
+        print("DEBUG: Timeout Error:", errt)
+    except requests.exceptions.RequestException as err:
+        print("DEBUG: Oops: Something Else", err)
+        return None  # 返回 None 在錯誤時
+
 def get_docker_hub_tags(image, pattern):
-    # Check if the image includes a namespace or is a library image
     if '/' in image:
         url = f"https://registry.hub.docker.com/v2/repositories/{image}/tags"
     else:
@@ -21,18 +36,15 @@ def get_docker_hub_tags(image, pattern):
 
     valid_tags = []
     
-    while url and len(valid_tags) < 10:  # Ensure we only collect up to 10 tags
-        response = requests.get(url)
-        
-        if response.status_code != 200:
-            print(f"Error fetching data for {image}: {response.status_code} - {response.text}")
-            return  # 终止当前镜像的处理
-
-        data = response.json()
+    while url and len(valid_tags) < 10:
+        data = fetch_docker_tags(url, image)  # 使用新的 fetch_docker_tags 函數
+        if not data:
+            print(f"DEBUG: Failed to fetch data for {image}")
+            return
         
         if 'results' not in data:
-            print(f"Missing 'results' in response data for {image}")
-            return  # 终止当前镜像的处理
+            print(f"DEBUG: Missing 'results' in response data for {image}")
+            return
 
         for result in data['results']:
             tag_name = result['name']
@@ -50,15 +62,14 @@ def get_docker_hub_tags(image, pattern):
                     }
                     valid_tags.append(tag_info)
         
-        url = data.get('next')  # Proceed to the next page if exists
+        url = data.get('next')
 
     save_tags_to_json(image, valid_tags)
 
-# 定义镜像及其版本匹配规则
 image_patterns = {
     "nginx": r"^1\.\d+\.\d+$",
     "elasticsearch": r"^([8-9]|\d{2,})\.\d+\.\d+$",
-    "nacos/nacos-server": r"^v2\.\d+\.\d+.*$",  # Only match v2 and later versions
+    "nacos/nacos-server": r"^v2\.\d+\.\d+.*$",
     "minio/minio": r"^RELEASE\.202[4-9]-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$",
     "rabbitmq": r"^v?[3-9]\.\d+\.\d+-management-alpine$",
     "redis": r"^v?7\.\d+\.\d+$",
@@ -67,5 +78,5 @@ image_patterns = {
 
 middlewares = ["nginx", "nacos/nacos-server", "redis", "elasticsearch", "minio/minio", "rabbitmq", "oscarfonts/geoserver"]
 for middleware in middlewares:
-    pattern = image_patterns.get(middleware, r".*")  # default to any if specific not found
+    pattern = image_patterns.get(middleware, r".*")
     get_docker_hub_tags(middleware, pattern)
