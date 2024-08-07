@@ -6,13 +6,18 @@ import re
 def save_tags_to_json(image, tag_data):
     if not os.path.exists('data'):
         os.makedirs('data')
-    filename = f"{image}_versions.json"
+    filename = f"{image.replace('/', '_')}_versions.json"  # Replace '/' in filename to avoid path issues
     filepath = os.path.join('data', filename)
     with open(filepath, 'w') as file:
         json.dump(tag_data, file, indent=4)
 
 def get_docker_hub_tags(image, pattern):
-    url = f"https://registry.hub.docker.com/v2/repositories/library/{image}/tags"
+    # Check if the image includes a namespace or is a library image
+    if '/' in image:
+        url = f"https://registry.hub.docker.com/v2/repositories/{image}/tags"
+    else:
+        url = f"https://registry.hub.docker.com/v2/repositories/library/{image}/tags"
+
     valid_tags = []
     
     while url and len(valid_tags) < 10:  # Ensure we only collect up to 10 tags
